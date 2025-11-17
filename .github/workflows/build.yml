@@ -68,7 +68,7 @@ jobs:
                   nrf52840dongle_hci_uart.zip
       
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: nrf52840dongle_hci_uart.zip
           path: nrf52840dongle_hci_uart.zip
