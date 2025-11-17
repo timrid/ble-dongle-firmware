@@ -48,6 +48,16 @@ jobs:
       - name: Install west
         run: uv pip install west
 
+      - name: Install Zephyr SDK
+        run: |
+          cd /opt
+          sudo wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.17.4/zephyr-sdk-0.17.4_linux-x86_64.tar.xz
+          sudo tar xf zephyr-sdk-0.17.4_linux-x86_64.tar.xz
+          sudo mv zephyr-sdk-0.17.4 zephyr-sdk
+          cd zephyr-sdk
+          sudo ./setup.sh
+          export ZEPHYR_SDK_INSTALL_DIR=/opt/zephyr-sdk
+
       - name: Init west
         run: |
           west init
@@ -62,6 +72,7 @@ jobs:
 
       - name: build firmware
         run: |
+          export ZEPHYR_SDK_INSTALL_DIR=/opt/zephyr-sdk
           west build -b nrf52840dongle/nrf52840 zephyr/samples/bluetooth/hci_uart
 
       - name: create zip package
