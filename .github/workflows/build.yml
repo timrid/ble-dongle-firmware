@@ -56,7 +56,7 @@ jobs:
 
       - name: Install Zephyr Python requirements
         run: |
-          zephyr/scripts/requirements.txt
+          pip install -r zephyr/scripts/requirements.txt
 
       - name: build firmware
         run: |
