@@ -43,10 +43,10 @@ jobs:
         run: uv python install
 
       - name: Install CMake
-        run: uv pip install cmake==4.1.2
+        run: uv pip install cmake==4.1.2 --system
 
       - name: Install west
-        run: uv pip install west
+        run: uv pip install west --system
 
       - name: Install Zephyr SDK
         run: |
@@ -68,7 +68,7 @@ jobs:
 
       - name: Install Zephyr Python requirements
         run: |
-          uv pip install -r zephyr/scripts/requirements.txt
+          uv pip install -r zephyr/scripts/requirements.txt --system
 
       - name: build firmware
         run: |
