@@ -22,29 +22,32 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Checkout
+      - name: Checkout Zephyr
         uses: actions/checkout@v4
+        with:
+          repository: zephyrproject-rtos/zephyr
+          path: zephyr
 
-      - name: Install nrfutil (Linux x64)
-        run: |
-          curl -L https://files.nordicsemi.com/artifactory/swtools/external/nrfutil/executables/x86_64-unknown-linux-gnu/nrfutil -o nrfutil
-          sudo mv nrfutil /usr/bin/
-          sudo chmod +x /usr/bin/nrfutil
-          nrfutil --version
+      # - name: Install nrfutil (Linux x64)
+      #   run: |
+      #     curl -L https://files.nordicsemi.com/artifactory/swtools/external/nrfutil/executables/x86_64-unknown-linux-gnu/nrfutil -o nrfutil
+      #     sudo mv nrfutil /usr/bin/
+      #     sudo chmod +x /usr/bin/nrfutil
+      #     nrfutil --version
 
-      - name: Install nrf5sdk-tools
-        run: |
-          nrfutil install nrf5sdk-tools
+      # - name: Install nrf5sdk-tools
+      #   run: |
+      #     nrfutil install nrf5sdk-tools
 
       - name: Setup Zephyr project
         uses: zephyrproject-rtos/action-zephyr-setup@v1
         with:
-          app-path: example-application
+          app-path: zephyr/samples/bluetooth/hci_uart
           toolchains: arm-zephyr-eabi
 
       - name: Build
         run: |
-          west build -b nrf52840dongle/nrf52840 zephyr/samples/bluetooth/hci_uart
+          west build -b nrf52840dongle/nrf52840
 
       # - name: Install the latest version of uv
       #   uses: astral-sh/setup-uv@v7
