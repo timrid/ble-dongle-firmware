@@ -28,16 +28,16 @@ jobs:
           repository: zephyrproject-rtos/zephyr
           path: zephyr
 
-      # - name: Install nrfutil (Linux x64)
-      #   run: |
-      #     curl -L https://files.nordicsemi.com/artifactory/swtools/external/nrfutil/executables/x86_64-unknown-linux-gnu/nrfutil -o nrfutil
-      #     sudo mv nrfutil /usr/bin/
-      #     sudo chmod +x /usr/bin/nrfutil
-      #     nrfutil --version
+      - name: Install nrfutil (Linux x64)
+        run: |
+          curl -L https://files.nordicsemi.com/artifactory/swtools/external/nrfutil/executables/x86_64-unknown-linux-gnu/nrfutil -o nrfutil
+          sudo mv nrfutil /usr/bin/
+          sudo chmod +x /usr/bin/nrfutil
+          nrfutil --version
 
-      # - name: Install nrf5sdk-tools
-      #   run: |
-      #     nrfutil install nrf5sdk-tools
+      - name: Install nrf5sdk-tools
+        run: |
+          nrfutil install nrf5sdk-tools
 
       - name: Setup Zephyr project
         uses: zephyrproject-rtos/action-zephyr-setup@v1
