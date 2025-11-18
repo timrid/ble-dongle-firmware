@@ -1,4 +1,4 @@
-# Prebuild nrf52840dongle BLE HCI UART Firmware
+# Prebuild nRF52840 dongle BLE HCI UART Firmware
 
 This repository contains prebuilt BLE HCI <-> UART firmware for an [nRF52840 dongle](https://www.nordicsemi.com/Products/Development-hardware/nRF52840-Dongle).
 
