@@ -7,7 +7,7 @@ on:
 
 jobs:
   call-build:
-    uses: ./.github/workflows/build.yml
+    uses: ./.github/workflows/build2.yml
 
   release:
     needs: call-build
@@ -21,4 +21,4 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: ble-dongle-firmware/nrf52840dongle_bluetooth_hci_uart.zip
+          files: Release.txt
