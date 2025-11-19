@@ -7,7 +7,7 @@ on:
 
 jobs:
   call-build:
-    uses: ./.github/workflows/build2.yml
+    uses: ./.github/workflows/build.yml
 
   release:
     needs: call-build
