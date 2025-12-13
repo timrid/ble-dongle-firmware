@@ -28,6 +28,18 @@ E.g. on macOS:
 ls /dev/tty.usbmodem*
 ```
 
+E.g. on Linux:
+
+```
+ls /dev/serial/by-id/usb-Nordic_Semiconductor_Open_DFU_Bootloader_*
+```
+
+If that doesn't work (because your Linux distro doesn't have the right udev rules).
+
+```
+ls /dev/ttyACM*
+```
+
 6. Flash the firmware: 
 ```
 nrfutil nrf5sdk-tools dfu usb-serial -pkg nrf52840dongle_bluetooth_hci_uart.zip -p YOUR-PORT-NUMBER
