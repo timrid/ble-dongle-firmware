@@ -17,11 +17,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Zephyr
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          repository: zephyrproject-rtos/zephyr
-          path: zephyr
 
       - name: Install nrfutil (Linux x64)
         run: |
@@ -37,8 +34,9 @@ jobs:
       - name: Setup Zephyr project
         uses: zephyrproject-rtos/action-zephyr-setup@v1
         with:
-          app-path: zephyr
+          app-path: .
           toolchains: arm-zephyr-eabi
+          manifest-file-name: west.yml
 
       - name: Build
         run: |
